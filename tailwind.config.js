@@ -15,21 +15,30 @@ module.exports = {
                 "70v": "70vh",
                 "80v": "80vh",
                 "90v": "90vh",
+                "93v": "93vh",
                 "100v": "100vh",
             },
             screens: {
                 "3xl": "2000px",
+                'tablet': '640px',
+                'laptop': '1400px',
             },
+            textColor: {
+              'primary': '#3490dc',
+              'secondary': '#ffed4a',
+              'coat': '#FF6484',
+            }
         },
         backgroundColor: (theme) => ({
             ...theme("colors"),
             primary: "#6C63FF",
-            secondary: "#ffed4a",
-            danger: "#e3342f",
+            secondary: "#514BC0",
+            coat: "#FF6484",
         }),
         fontFamily: {
             roboto: ["roboto"],
         },
+  
     },
     variants: {
         extend: {},

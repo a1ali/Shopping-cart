@@ -16,7 +16,7 @@ const Nav = () => {
                         to="/"
                         className={`${
                             activeTab === "home"
-                                ? "bg-purple-700"
+                                ? "bg-secondary"
                                 : "bg-primary"
                         } px-3 rounded-lg py-2`}
                         onClick={() => setActiveTab("home")}
@@ -27,7 +27,7 @@ const Nav = () => {
                         to="/shop"
                         className={`${
                             activeTab === "shop"
-                                ? "bg-purple-700"
+                                ? "bg-secondary"
                                 : "bg-primary"
                         } px-3 rounded-lg py-2`}
                         onClick={() => setActiveTab("shop")}
@@ -38,7 +38,7 @@ const Nav = () => {
                         to="/contact"
                         className={`${
                             activeTab === "contact"
-                                ? "bg-purple-700"
+                                ? "bg-secondary"
                                 : "bg-primary"
                         } px-3 rounded-lg py-2`}
                         onClick={() => setActiveTab("contact")}
