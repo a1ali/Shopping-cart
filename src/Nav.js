@@ -13,7 +13,7 @@ const Nav = () => {
                 </Link>
                 <ul className="hidden sm:flex items-center">
                     <Link
-                        to="/"
+                        to="/Shopping-cart"
                         className={`${
                             activeTab === "home"
                                 ? "bg-secondary"
@@ -24,7 +24,7 @@ const Nav = () => {
                         <li>Home</li>
                     </Link>
                     <Link
-                        to="/shop"
+                        to="/Shopping-cart/shop"
                         className={`${
                             activeTab === "shop"
                                 ? "bg-secondary"
@@ -35,7 +35,7 @@ const Nav = () => {
                         <li>Shop</li>
                     </Link>
                     <Link
-                        to="/contact"
+                        to="/Shopping-cart/contact"
                         className={`${
                             activeTab === "contact"
                                 ? "bg-secondary"
@@ -46,7 +46,7 @@ const Nav = () => {
                         <li>Contact</li>
                     </Link>
                     <Link
-                        to="/cart"
+                        to="/Shopping-cart/cart"
                         className="px-3"
                         onClick={() => setActiveTab("")}
                     >
@@ -121,28 +121,28 @@ const Nav = () => {
                             transition={{ duration: 0.15 }}
                         >
                             <Link
-                                to="/"
+                                to="/Shopping-cart"
                                 className="px-3 py-1 w-full border-b text-center border-t border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none">Home</li>
                             </Link>
                             <Link
-                                to="/shop"
+                                to="/Shopping-cart/shop"
                                 className="px-3 py-1 w-full border-b text-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none">Shop</li>
                             </Link>
                             <Link
-                                to="/cart"
+                                to="/Shopping-cart/cart"
                                 className="px-3 py-1 w-full border-b flex justify-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none flex">Cart</li>
                             </Link>
                             <Link
-                                to="/contact"
+                                to="/Shopping-cart/contact"
                                 className="px-3 py-1 w-full border-b text-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >

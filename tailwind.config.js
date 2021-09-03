@@ -27,7 +27,15 @@ module.exports = {
               'primary': '#3490dc',
               'secondary': '#ffed4a',
               'coat': '#FF6484',
+            },
+            scale: {
+                60: ".60",
+                65: ".65",
+                55: ".55",
+                40: ".40",
+                45: ".45",
             }
+
         },
         backgroundColor: (theme) => ({
             ...theme("colors"),
