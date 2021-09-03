@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Shop = () => {
+    let [items, setItems]= useState([])
+    
     return (
         <div>
-            Hello from Shop!
+            
         </div>
     )
 }

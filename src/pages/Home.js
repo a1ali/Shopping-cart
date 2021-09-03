@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
     return (
         <div className="flex flex-col sm:flex-row items-center text-center justify-center sm:items-start sm:text-left font-roboto sm:h-93v">
-            <div className="flex flex-col sm:w-4/12 sm:ml-8 justify-center sm:h-90v">
+            <div className="flex flex-col sm:w-4/12 sm:ml-8 lg:ml-16 justify-center sm:h-90v">
                 <span className="text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-9xl font-bold text-gray-700 tracking-wide mt-8 sm:mt-13 ">
                     The all-in-one website for all your buying needs
                 </span>
