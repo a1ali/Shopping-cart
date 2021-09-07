@@ -1,3 +1,5 @@
+
+
 module.exports = {
     purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
     darkMode: false, // or 'media' or 'class'
@@ -44,8 +46,16 @@ module.exports = {
             coat: "#FF6484",
         }),
         fontFamily: {
-            roboto: ["roboto"],
+            roboto: ["Roboto"],
         },
+
+        borderColor: theme => ({
+            ...theme('colors'),
+            DEFAULT: theme('colors.gray.300', 'currentColor'),
+            primary: "#6C63FF",
+            secondary: "#514BC0",
+            coat: "#FF6484",
+        })
   
     },
     variants: {

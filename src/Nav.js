@@ -7,11 +7,11 @@ const Nav = () => {
     let [activeTab, setActiveTab] = useState("home");
     return (
         <div className="relative">
-            <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-100 sm:rounded-b-lg font-roboto ">
+            <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-100 md:rounded-b-lg font-roboto ">
                 <Link to="/" onClick={() => setActiveTab("home")}>
                     <h3 className="text-xl font-bold">ALLMART</h3>
                 </Link>
-                <ul className="hidden sm:flex items-center">
+                <ul className="hidden md:flex items-center">
                     <Link
                         to="/Shopping-cart"
                         className={`${
@@ -71,7 +71,7 @@ const Nav = () => {
                         </li>
                     </Link>
                 </ul>
-                <div className="sm:hidden" onClick={() => setMenu(!menu)}>
+                <div className="md:hidden" onClick={() => setMenu(!menu)}>
                     {!menu && (
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const Nav = () => {
                 </div>
             </div>
             {/* Mobile Dropdown */}
-            <div className="sm:hidden w-full">
+            <div className="md:hidden w-full">
                 <AnimatePresence>
                     {menu && (
                         <motion.div
