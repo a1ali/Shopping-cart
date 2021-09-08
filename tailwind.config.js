@@ -18,6 +18,7 @@ module.exports = {
                 "80v": "80vh",
                 "90v": "90vh",
                 "93v": "93vh",
+                "95v": "95vh",
                 "100v": "100vh",
             },
             screens: {
