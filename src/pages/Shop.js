@@ -85,15 +85,18 @@ const Shop = () => {
             </div>
 
             <div className="overflow-y-auto flex flex-wrap m-9">
-                <div className="w-80 h-96 flex flex-col rounded-sm p-4 border overflow-hidden">
-                        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" className="w-full h-3/4  object-contain"></img>
+                <div className="w-80 h-96 flex flex-col rounded-sm pt-4 border border-opacity-50 overflow-hidden shadow-md transform hover:scale-95 ease-in duration-150">
+                        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" className="w-full h-3/4 mb-2 p-4  object-contain"></img>
+                        <div className="h-full w-full bg-gray-600">
+
+                        </div>
                         
                 </div>
                
      
             </div>
 
-            <div className="absolute bottom-0 right-0 m-4 md:hidden">
+            <div className="absolute bottom-0 right-0 m-4 mb-14 md:hidden">
                 <Link to="/Shopping-cart/cart" className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto">
                     <li className="relative list-none">
                         <svg

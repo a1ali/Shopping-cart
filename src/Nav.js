@@ -18,7 +18,7 @@ const Nav = () => {
                             activeTab === "home"
                                 ? "bg-secondary"
                                 : "bg-primary"
-                        } px-3 rounded-lg py-2`}
+                        } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("home")}
                     >
                         <li>Home</li>
@@ -29,7 +29,7 @@ const Nav = () => {
                             activeTab === "shop"
                                 ? "bg-secondary"
                                 : "bg-primary"
-                        } px-3 rounded-lg py-2`}
+                        } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("shop")}
                     >
                         <li>Shop</li>
@@ -40,7 +40,7 @@ const Nav = () => {
                             activeTab === "contact"
                                 ? "bg-secondary"
                                 : "bg-primary"
-                        } px-3 rounded-lg py-2`}
+                        } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("contact")}
                     >
                         <li>Contact</li>
