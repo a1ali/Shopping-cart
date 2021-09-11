@@ -11,11 +11,26 @@ const Shop = () => {
     let [items, setItems] = useState([]);
     let [activeTab, setActiveTab] = useState("all");
 
+    // useEffect(() => {
+    //     fetch("https://fakestoreapi.com/products")
+    //         .then((res) => res.json())
+    //         .then((json) => setItems(json));
+    // }, []);
+
     useEffect(() => {
-        fetch("https://fakestoreapi.com/products")
+        console.log('hello')
+        if(activeTab === 'all') {
+            fetch("https://fakestoreapi.com/products")
             .then((res) => res.json())
             .then((json) => setItems(json));
-    }, []);
+        }
+        else {
+            fetch(`https://fakestoreapi.com/products/category/${activeTab}`)
+            .then((res) => res.json())
+            .then((json) => setItems(json));
+        }
+
+    }, [activeTab])
 
     return (
         <div className="flex flex-col md:flex-row  h-93v 3xl:h-95v  relative">
@@ -36,10 +51,10 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2   md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "mens" ? " border-coat" : ""
+                            activeTab === "men's clothing" ? " border-coat" : ""
                         }`}
                         onClick={() => {
-                            setActiveTab("mens");
+                            setActiveTab("men's clothing");
                         }}
                     >
                         <img className="h-10" src={suit} alt="" />
@@ -47,10 +62,10 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "womens" ? "border-coat" : ""
+                            activeTab === "women's clothing" ? "border-coat" : ""
                         }`}
                         onClick={() => {
-                            setActiveTab("womens");
+                            setActiveTab("women's clothing");
                         }}
                     >
                         <img className="h-10" src={dress} alt="" />
