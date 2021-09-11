@@ -5,16 +5,17 @@ import dress from "./../assets/dress.svg";
 import electronics from "./../assets/electronics.svg";
 import all from "./../assets/all.svg";
 import { Link } from "react-router-dom";
+import ItemCard from "./../components/ItemCard";
 
 const Shop = () => {
     let [items, setItems] = useState([]);
     let [activeTab, setActiveTab] = useState("all");
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-        .then(res => res.json())
-        .then(json => (console.log(json)))
-    },[])
+        fetch("https://fakestoreapi.com/products")
+            .then((res) => res.json())
+            .then((json) => setItems(json));
+    }, []);
 
     return (
         <div className="flex flex-col md:flex-row  h-93v 3xl:h-95v  relative">
@@ -22,7 +23,9 @@ const Shop = () => {
                 <ul className="flex justify-center md:h-full md:flex-col w-full pt-2 md:pt-0 font-roboto text-sm border-b md:border-b-0 md:border-r">
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 md:py-2 ${
-                            activeTab === "all" ? "border-coat" : "border-transparent"
+                            activeTab === "all"
+                                ? "border-coat"
+                                : "border-transparent"
                         } `}
                         onClick={() => {
                             setActiveTab("all");
@@ -44,9 +47,7 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "womens"
-                                ? "border-coat"
-                                : ""
+                            activeTab === "womens" ? "border-coat" : ""
                         }`}
                         onClick={() => {
                             setActiveTab("womens");
@@ -57,9 +58,7 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "jewelry"
-                                ? "border-coat"
-                                : ""
+                            activeTab === "jewelry" ? "border-coat" : ""
                         }`}
                         onClick={() => {
                             setActiveTab("jewelry");
@@ -70,9 +69,7 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "electronics"
-                                ? "border-coat"
-                                : ""
+                            activeTab === "electronics" ? "border-coat" : ""
                         }`}
                         onClick={() => {
                             setActiveTab("electronics");
@@ -85,19 +82,20 @@ const Shop = () => {
             </div>
 
             <div className="overflow-y-auto flex flex-wrap m-9">
-                <div className="w-80 h-96 flex flex-col rounded-sm pt-4 border border-opacity-50 overflow-hidden shadow-md transform hover:scale-95 ease-in duration-150">
-                        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="" className="w-full h-3/4 mb-2 p-4  object-contain"></img>
-                        <div className="h-full w-full bg-gray-600">
-
-                        </div>
-                        
-                </div>
-               
-     
+                {items.map((item) => (
+                    <ItemCard
+                        itemImg={item.image}
+                        itemTitle={item.title}
+                        itemPrice={item.price}
+                    ></ItemCard>
+                ))}
             </div>
 
             <div className="absolute bottom-0 right-0 m-4 mb-14 md:hidden">
-                <Link to="/Shopping-cart/cart" className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto">
+                <Link
+                    to="/Shopping-cart/cart"
+                    className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto"
+                >
                     <li className="relative list-none">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
