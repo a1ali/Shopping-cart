@@ -18,19 +18,17 @@ const Shop = () => {
     // }, []);
 
     useEffect(() => {
-        console.log('hello')
-        if(activeTab === 'all') {
+        console.log("hello");
+        if (activeTab === "all") {
             fetch("https://fakestoreapi.com/products")
-            .then((res) => res.json())
-            .then((json) => setItems(json));
-        }
-        else {
+                .then((res) => res.json())
+                .then((json) => setItems(json));
+        } else {
             fetch(`https://fakestoreapi.com/products/category/${activeTab}`)
-            .then((res) => res.json())
-            .then((json) => setItems(json));
+                .then((res) => res.json())
+                .then((json) => setItems(json));
         }
-
-    }, [activeTab])
+    }, [activeTab]);
 
     return (
         <div className="flex flex-col md:flex-row  h-93v 3xl:h-95v  relative">
@@ -62,7 +60,9 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "women's clothing" ? "border-coat" : ""
+                            activeTab === "women's clothing"
+                                ? "border-coat"
+                                : ""
                         }`}
                         onClick={() => {
                             setActiveTab("women's clothing");
@@ -73,14 +73,14 @@ const Shop = () => {
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
-                            activeTab === "jewelry" ? "border-coat" : ""
+                            activeTab === "jewelery" ? "border-coat" : ""
                         }`}
                         onClick={() => {
-                            setActiveTab("jewelry");
+                            setActiveTab("jewelery");
                         }}
                     >
                         <img className="h-10" src={necklace} alt="" />
-                        <span className="pb-2 md:pb-0">Jewelry</span>
+                        <span className="pb-2 md:pb-0">Jewelery</span>
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
@@ -96,12 +96,13 @@ const Shop = () => {
                 </ul>
             </div>
 
-            <div className="overflow-y-auto flex flex-wrap m-9">
+            <div className="overflow-y-auto flex flex-wrap w-full justify-center">
                 {items.map((item) => (
                     <ItemCard
                         itemImg={item.image}
                         itemTitle={item.title}
                         itemPrice={item.price}
+                        key={item.id}
                     ></ItemCard>
                 ))}
             </div>
