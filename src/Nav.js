@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
+import {bindActionCreators} from "redux"
+import {actionCreators} from "./state/allActions"
 
 const Nav = () => {
     let [menu, setMenu] = useState(false);
-    let [activeTab, setActiveTab] = useState("home");
+    //let [activeTab, setActiveTab] = useState("home");
+
+    const activeTab = useSelector((state) => state.tabReducer)
+    const dispatch = useDispatch();
+    const {setActiveTab} = bindActionCreators(actionCreators, dispatch)
+    console.log(activeTab)
+    //console.log(tabReducer)
     return (
         <div className="relative">
             <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-100 md:rounded-b-lg font-roboto ">
-                <Link to="/" onClick={() => setActiveTab("home")}>
+                <Link to="/Shopping-cart" onClick={() => setActiveTab("home")}>
                     <h3 className="text-xl font-bold">ALLMART</h3>
                 </Link>
                 <ul className="hidden md:flex items-center">

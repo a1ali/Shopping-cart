@@ -1,8 +1,14 @@
 import React from "react";
 import undrawShop2 from "./../assets/undrawShop2.svg";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../state/allActions";
 
 const Home = () => {
+    const dispatch = useDispatch();
+    const { setActiveTab } = bindActionCreators(actionCreators, dispatch);
+
     return (
         <div className="flex flex-col md:flex-row items-center text-center justify-center md:items-start md:text-left font-roboto md:h-93v">
             <div className="flex flex-col md:w-4/12 md:ml-8 lg:ml-16 justify-center md:h-90v">
@@ -16,6 +22,7 @@ const Home = () => {
                     <Link
                         to="/Shopping-cart/shop"
                         className="rounded-full  bg-primary px-4 md:px-8 py-2 md:py-4 text-gray-100 text-center text-lg md:text-xl font-semibold"
+                        onClick={() => setActiveTab("shop")}
                     >
                         Shop
                     </Link>
@@ -23,7 +30,11 @@ const Home = () => {
             </div>
 
             <div className="m-5 md:h-90v flex items-center">
-                <img className="transform md:scale-50 lg:scale-55 xl:scale-60 2xl:scale-65 3xl:scale-75 md:-mt-8" src={undrawShop2} alt="React Logo" />
+                <img
+                    className="transform md:scale-50 lg:scale-55 xl:scale-60 2xl:scale-65 3xl:scale-75 md:-mt-8"
+                    src={undrawShop2}
+                    alt="React Logo"
+                />
             </div>
         </div>
     );
