@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const cartCircle = () => {
     return (
-        <div className="absolute bottom-0 right-0 m-4 mb-14 md:hidden">
+        <div className="absolute bottom-0 right-0 m-4 mb-10 md:hidden">
             <Link
                 to="/Shopping-cart/cart"
                 className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto"
