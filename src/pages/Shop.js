@@ -6,33 +6,27 @@ import electronics from "./../assets/electronics.svg";
 import all from "./../assets/all.svg";
 import { Link } from "react-router-dom";
 import ItemCard from "./../components/ItemCard";
+import CartCircle from "../components/CartCircle";
 
 const Shop = () => {
     let [items, setItems] = useState([]);
     let [activeTab, setActiveTab] = useState("all");
     let [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     fetch("https://fakestoreapi.com/products")
-    //         .then((res) => res.json())
-    //         .then((json) => setItems(json));
-    // }, []);
-
     useEffect(() => {
-        setLoading(true)
-        console.log("hello");
+        setLoading(true);
         if (activeTab === "all") {
             fetch("https://fakestoreapi.com/products")
                 .then((res) => res.json())
                 .then((json) => {
-                    setItems(json)
+                    setItems(json);
                     setLoading(false);
                 });
         } else {
             fetch(`https://fakestoreapi.com/products/category/${activeTab}`)
                 .then((res) => res.json())
                 .then((json) => {
-                    setItems(json)
+                    setItems(json);
                     setLoading(false);
                 });
         }
@@ -107,21 +101,21 @@ const Shop = () => {
             {loading ? (
                 <div className="h-93v w-full flex items-center justify-center">
                     <svg
-                        class="animate-spin h-16 w-16 md:h-32 md:w-32 text-gray-500"
+                        className="animate-spin h-16 w-16 md:h-32 md:w-32 text-gray-500"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                     >
                         <circle
-                            class="opacity-25"
+                            className="opacity-25"
                             cx="12"
                             cy="12"
                             r="10"
                             stroke="currentColor"
-                            stroke-width="4"
+                            strokeWidth="4"
                         ></circle>
                         <path
-                            class="opacity-75"
+                            className="opacity-75"
                             fill="currentColor"
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                         ></path>
@@ -142,7 +136,7 @@ const Shop = () => {
                 </div>
             )}
 
-            <div className="absolute bottom-0 right-0 m-4 mb-14 md:hidden">
+            {/* <div className="absolute bottom-0 right-0 m-4 mb-14 md:hidden">
                 <Link
                     to="/Shopping-cart/cart"
                     className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto"
@@ -167,7 +161,10 @@ const Shop = () => {
                         </div>
                     </li>
                 </Link>
-            </div>
+            </div> */}
+            {/* <cartCircle></cartCircle> */}
+
+            <CartCircle></CartCircle>
         </div>
     );
 };

@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector, useDispatch } from "react-redux";
-import {bindActionCreators} from "redux"
-import {actionCreators} from "./state/allActions"
+import { bindActionCreators } from "redux";
+import { actionCreators } from "./state/allActions";
 
 const Nav = () => {
     let [menu, setMenu] = useState(false);
     //let [activeTab, setActiveTab] = useState("home");
 
-    const activeTab = useSelector((state) => state.tabReducer)
+    const activeTab = useSelector((state) => state.tabReducer);
     const dispatch = useDispatch();
-    const {setActiveTab} = bindActionCreators(actionCreators, dispatch)
-    console.log(activeTab)
-    //console.log(tabReducer)
+    const { setActiveTab } = bindActionCreators(actionCreators, dispatch);
+
     return (
         <div className="relative">
             <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-100 md:rounded-b-lg font-roboto ">
@@ -24,9 +23,7 @@ const Nav = () => {
                     <Link
                         to="/Shopping-cart"
                         className={`${
-                            activeTab === "home"
-                                ? "bg-secondary"
-                                : "bg-primary"
+                            activeTab === "home" ? "bg-secondary" : "bg-primary"
                         } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("home")}
                     >
@@ -35,9 +32,7 @@ const Nav = () => {
                     <Link
                         to="/Shopping-cart/shop"
                         className={`${
-                            activeTab === "shop"
-                                ? "bg-secondary"
-                                : "bg-primary"
+                            activeTab === "shop" ? "bg-secondary" : "bg-primary"
                         } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("shop")}
                     >

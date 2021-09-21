@@ -27,7 +27,7 @@ module.exports = {
                 'laptop': '1400px',
             },
             textColor: {
-              'primary': '#3490dc',
+              'primary': '#6C63FF',
               'secondary': '#ffed4a',
               'coat': '#FF6484',
             },
