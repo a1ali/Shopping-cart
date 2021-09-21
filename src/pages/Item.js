@@ -5,6 +5,8 @@ const Item = ({ match }) => {
     let [item, setItem] = useState({});
     let [loading, setLoading] = useState(true);
     let [quantity, setQuantity] = useState(1);
+    let [size, setSize] = useState("sm");
+    let [clothing, setClothing] = useState(false);
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${match.params.id}`)
@@ -12,18 +14,24 @@ const Item = ({ match }) => {
             .then((res) => {
                 setItem(res);
                 setLoading(false);
+                if (
+                    res.category == "men's clothing" ||
+                    res.category == "women's clothing"
+                ) {
+                    setClothing(true);
+                }
             });
     }, []);
 
     const increaseQuant = () => {
-        setQuantity(quantity + 1)
-    }
+        setQuantity(quantity + 1);
+    };
 
     const decreaseQuant = () => {
-        if(quantity > 1) {
-            setQuantity(quantity - 1)
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
         }
-    }
+    };
 
     return (
         <div>
@@ -64,16 +72,70 @@ const Item = ({ match }) => {
                             <span className=" text-lg md:text-3xl mx-3  font-semibold pb-3">
                                 {item.title}
                             </span>
-                            <span className="pb-3 mx-3 ">{item.description}</span>
+                            <span className="pb-3 mx-3 ">
+                                {item.description}
+                            </span>
                             <span className="font-light ">{`Customer rating: ${item.rating.rate}/5`}</span>
-                            <span className="pt-3 text-lg font-semibold">${item.price}</span>
+                            <span className="pt-3 text-lg font-semibold">
+                                ${item.price}
+                            </span>
+                            {clothing ? (
+                                <div className="flex mt-3 text-gray-900">
+                                    <button
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'S') ? 'bg-primary text-gray-50': ''}`}
+                                        onClick={() => setSize("S")}
+                                    >
+                                        S
+                                    </button>
+                                    <button
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'M') ? 'bg-primary text-gray-50': ''}`}
+                                        onClick={() => setSize("M")}
+                                    >
+                                        M
+                                    </button>
+                                    <button
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'L') ? 'bg-primary text-gray-50': ''}`}
+                                        onClick={() => setSize("L")}
+                                    >
+                                        L
+                                    </button>
+                                    <button
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'XL') ? 'bg-primary text-gray-50': ''}`}
+                                        onClick={() => setSize("XL")}
+                                    >
+                                        XL
+                                    </button>
+                                    <button
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'XXL') ? 'bg-primary text-gray-50': ''}`}
+                                        onClick={() => setSize("XXL")}
+                                    >
+                                        XXL
+                                    </button>
+                                </div>
+                            ) : (
+                                ""
+                            )}
                             <div className="text-primary flex items-center my-3 ">
-                                <button onClick={() => decreaseQuant()} className="w-10 h-10 rounded-full border-primary border-2 text-3xl mr-3 font-semibold hover:bg-primary hover:text-gray-50 transform transition-all duration-200 ease-in">-</button>
-                                <span className="text-2xl mr-3">{quantity}</span>
-                                <button onClick={() => increaseQuant()} className="w-10 h-10 rounded-full border-primary border-2 text-3xl hover:bg-primary hover:text-gray-50 transform transition-all duration-200 ease-in ">+</button>
+                                <button
+                                    onClick={() => decreaseQuant()}
+                                    className="w-10 h-10 rounded-full border-primary border-2 text-3xl mr-3 font-semibold hover:bg-primary hover:text-gray-50 transform transition-all duration-200 ease-in"
+                                >
+                                    -
+                                </button>
+                                <span className="text-2xl mr-3">
+                                    {quantity}
+                                </span>
+                                <button
+                                    onClick={() => increaseQuant()}
+                                    className="w-10 h-10 rounded-full border-primary border-2 text-3xl hover:bg-primary hover:text-gray-50 transform transition-all duration-200 ease-in "
+                                >
+                                    +
+                                </button>
                             </div>
                             <div>
-                                <button className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in">Add to Cart</button>
+                                <button className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in">
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     </div>
