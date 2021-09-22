@@ -1,9 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const cartCircle = () => {
     return (
-        <div className="absolute bottom-0 right-0 m-4 mb-10 md:hidden">
+        <motion.div
+            drag
+            dragConstraints={{ top: -600, left: -270, right: 0, bottom: 0 }}
+            // dragElastic={0}
+            className="absolute bottom-0 right-0 m-4 mb-10 md:hidden"
+        >
             <Link
                 to="/Shopping-cart/cart"
                 className="h-16 w-16 rounded-full bg-primary shadow-md flex items-center justify-center text-gray-100 font-roboto"
@@ -28,7 +34,7 @@ const cartCircle = () => {
                     </div>
                 </li>
             </Link>
-        </div>
+        </motion.div>
     );
 };
 

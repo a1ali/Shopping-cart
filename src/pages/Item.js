@@ -5,7 +5,7 @@ const Item = ({ match }) => {
     let [item, setItem] = useState({});
     let [loading, setLoading] = useState(true);
     let [quantity, setQuantity] = useState(1);
-    let [size, setSize] = useState("sm");
+    let [size, setSize] = useState("");
     let [clothing, setClothing] = useState(false);
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const Item = ({ match }) => {
                     </svg>
                 </div>
             ) : (
-                <div className="h-93v w-full flex items-center justify-center font-roboto">
+                <div className="md:h-93v w-full flex items-center justify-center font-roboto">
                     <div className="flex flex-col md:flex-row items-center justify-center">
                         <div className="h-52 mt-5 md:mt-0 md:h-96 md:mr-10">
                             <img
