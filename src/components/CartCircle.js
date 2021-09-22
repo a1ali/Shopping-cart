@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
 
-const cartCircle = () => {
+const CartCircle = () => {
+    let cart = useSelector((state) => state.cartReducer);
     return (
         <motion.div
             drag
             dragConstraints={{ top: -600, left: -270, right: 0, bottom: 0 }}
             // dragElastic={0}
-            className="absolute bottom-0 right-0 m-4 mb-10 md:hidden"
+            className="absolute bottom-0 right-0 m-4 mb-10 md:hidden h-16 w-16 rounded-full shadow-lg"
         >
             <Link
                 to="/Shopping-cart/cart"
@@ -30,7 +32,7 @@ const cartCircle = () => {
                         />
                     </svg>
                     <div className="absolute -top-2 -right-3 rounded-full h-5 w-5 bg-purple-700 text-center text-sm">
-                        <span>0</span>
+                        <span>{cart.length}</span>
                     </div>
                 </li>
             </Link>
@@ -38,4 +40,4 @@ const cartCircle = () => {
     );
 };
 
-export default cartCircle;
+export default CartCircle;

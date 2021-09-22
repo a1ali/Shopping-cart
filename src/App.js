@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Nav from "./Nav";
 import Item from "./pages/Item";
+import Cart from "./pages/Cart";
+
 
 function App() {
     return (
@@ -15,6 +17,7 @@ function App() {
                     <Route path="/Shopping-cart/shop" exact component={Shop}></Route>
                     <Route path="/Shopping-cart/contact" exact component={Contact}></Route>
                     <Route path="/Shopping-cart/shop/:id" component={Item}></Route>
+                    <Route path="/Shopping-cart/cart" component={Cart}></Route>
                 </Switch>
             </Router>
         </div>

@@ -7,11 +7,19 @@ import all from "./../assets/all.svg";
 import { Link } from "react-router-dom";
 import ItemCard from "./../components/ItemCard";
 import CartCircle from "../components/CartCircle";
+import { useSelector, useDispatch } from "react-redux";
 
 const Shop = () => {
     let [items, setItems] = useState([]);
     let [activeTab, setActiveTab] = useState("all");
     let [loading, setLoading] = useState(true);
+
+    let cart = useSelector((state) => state.cartReducer)
+    
+    // useEffect(() => {
+    //     console.log(cart)
+    // }, [cart])
+   
 
     useEffect(() => {
         setLoading(true);

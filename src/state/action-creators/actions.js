@@ -6,3 +6,12 @@ export const setActiveTab = (tab) => {
         })
     }
 }
+
+export const addToCart = (cartItem) => {
+    return (dispath) => {
+        dispath({
+            type:"ADD_TO_CART",
+            payload:cartItem
+        })
+    }
+}

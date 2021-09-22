@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import CartCircle from "../components/CartCircle";
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../state/allActions";
+import { v4 as uuidv4 } from 'uuid';
 
 const Item = ({ match }) => {
     let [item, setItem] = useState({});
     let [loading, setLoading] = useState(true);
     let [quantity, setQuantity] = useState(1);
-    let [size, setSize] = useState("");
+    let [size, setSize] = useState("S");
     let [clothing, setClothing] = useState(false);
+
+    const cart = useSelector((state) => state.cartReducer);
+    const dispatch = useDispatch();
+    const { addToCart } = bindActionCreators(actionCreators, dispatch);
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${match.params.id}`)
@@ -15,8 +23,8 @@ const Item = ({ match }) => {
                 setItem(res);
                 setLoading(false);
                 if (
-                    res.category == "men's clothing" ||
-                    res.category == "women's clothing"
+                    res.category === "men's clothing" ||
+                    res.category === "women's clothing"
                 ) {
                     setClothing(true);
                 }
@@ -133,7 +141,18 @@ const Item = ({ match }) => {
                                 </button>
                             </div>
                             <div>
-                                <button className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in">
+                                <button className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in"
+                                    onClick={() => {
+                                        addToCart({
+                                            id: uuidv4(),
+                                            title: item.title,
+                                            size: size,
+                                            quantity: quantity,
+                                            clothing: clothing,
+                                            image: item.image,
+                                        })
+                                    }}
+                                >
                                     Add to Cart
                                 </button>
                             </div>
