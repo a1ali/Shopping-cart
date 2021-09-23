@@ -5,12 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/allActions";
 
+
 const Nav = () => {
     let [menu, setMenu] = useState(false);
     //let [activeTab, setActiveTab] = useState("home");
 
     const activeTab = useSelector((state) => state.tabReducer);
     const dispatch = useDispatch();
+    let cart = useSelector(state => state.cartReducer)
     const { setActiveTab } = bindActionCreators(actionCreators, dispatch);
 
     return (
@@ -70,7 +72,7 @@ const Nav = () => {
                                 />
                             </svg>
                             <div className="absolute -top-2 -right-3 rounded-full h-5 w-5 bg-purple-600 text-center text-sm">
-                                <span>0</span>
+                                <span>{cart.length}</span>
                             </div>
                         </li>
                     </Link>
