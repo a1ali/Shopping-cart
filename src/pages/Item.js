@@ -149,7 +149,9 @@ const Item = ({ match }) => {
                                             size: size,
                                             quantity: quantity,
                                             clothing: clothing,
+                                            price: item.price,
                                             image: item.image,
+                                            itemId: item.id,
                                         })
                                     }}
                                 >
