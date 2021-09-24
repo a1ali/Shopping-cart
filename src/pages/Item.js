@@ -69,7 +69,7 @@ const Item = ({ match }) => {
             ) : (
                 <div className="md:h-93v w-full flex items-center justify-center font-roboto">
                     <div className="flex flex-col md:flex-row items-center justify-center">
-                        <div className="h-52 mt-5 md:mt-0 md:h-96 md:mr-10">
+                        <div className="h-52 mt-5 mx-6 md:mt-0 md:h-96 md:mr-10">
                             <img
                                 src={item.image}
                                 alt={item.title}
