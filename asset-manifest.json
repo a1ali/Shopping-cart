@@ -1,28 +1,27 @@
 {
   "files": {
-    "main.css": "/Shopping-cart/static/css/main.9bb6acfe.chunk.css",
-    "main.js": "/Shopping-cart/static/js/main.6ee01bca.chunk.js",
-    "main.js.map": "/Shopping-cart/static/js/main.6ee01bca.chunk.js.map",
+    "main.css": "/Shopping-cart/static/css/main.2792a392.chunk.css",
+    "main.js": "/Shopping-cart/static/js/main.b77fb826.chunk.js",
+    "main.js.map": "/Shopping-cart/static/js/main.b77fb826.chunk.js.map",
     "runtime-main.js": "/Shopping-cart/static/js/runtime-main.c3b35256.js",
     "runtime-main.js.map": "/Shopping-cart/static/js/runtime-main.c3b35256.js.map",
     "static/js/2.6472b220.chunk.js": "/Shopping-cart/static/js/2.6472b220.chunk.js",
     "static/js/2.6472b220.chunk.js.map": "/Shopping-cart/static/js/2.6472b220.chunk.js.map",
     "index.html": "/Shopping-cart/index.html",
-    "static/css/main.9bb6acfe.chunk.css.map": "/Shopping-cart/static/css/main.9bb6acfe.chunk.css.map",
+    "static/css/main.2792a392.chunk.css.map": "/Shopping-cart/static/css/main.2792a392.chunk.css.map",
     "static/js/2.6472b220.chunk.js.LICENSE.txt": "/Shopping-cart/static/js/2.6472b220.chunk.js.LICENSE.txt",
     "static/media/all.98e21768.svg": "/Shopping-cart/static/media/all.98e21768.svg",
     "static/media/dress.f15adde4.svg": "/Shopping-cart/static/media/dress.f15adde4.svg",
     "static/media/electronics.d2b8f3bd.svg": "/Shopping-cart/static/media/electronics.d2b8f3bd.svg",
     "static/media/necklace.506c987c.svg": "/Shopping-cart/static/media/necklace.506c987c.svg",
     "static/media/index.css": "/Shopping-cart/static/media/pattern-randomized.033b7615.svg",
-    "static/media/pexels-karolina-grabowska-5632382.a5dd7bd5.jpg": "/Shopping-cart/static/media/pexels-karolina-grabowska-5632382.a5dd7bd5.jpg",
-    "static/media/suit.a65e5c9e.svg": "/Shopping-cart/static/media/suit.a65e5c9e.svg",
-    "static/media/undrawShop2.468a12fe.svg": "/Shopping-cart/static/media/undrawShop2.468a12fe.svg"
+    "static/media/pexels-karolina-grabowska-compressed.813f0fa6.jpg": "/Shopping-cart/static/media/pexels-karolina-grabowska-compressed.813f0fa6.jpg",
+    "static/media/suit.a65e5c9e.svg": "/Shopping-cart/static/media/suit.a65e5c9e.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.c3b35256.js",
     "static/js/2.6472b220.chunk.js",
-    "static/css/main.9bb6acfe.chunk.css",
-    "static/js/main.6ee01bca.chunk.js"
+    "static/css/main.2792a392.chunk.css",
+    "static/js/main.b77fb826.chunk.js"
   ]
 }
