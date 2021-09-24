@@ -38,11 +38,11 @@ const Home = () => {
         //         />
         //     </div>
         // </div>
-        <main class="mx-auto max-w-7xl  h-93v flex flex-col md:flex-row items-center w-full">
-            <div class="px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-20 xl:pt-28 pb-4 sm:text-center lg:text-left w-full md:w-1/2 h-1/2 md:h-full flex justify-center flex-col bg-hero-pattern">
-                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                    <span class="block xl:inline">The shop for all</span>
-                    <span class="block text-indigo-600 xl:inline">
+        <main class="h-93v 3xl:h-95v flex flex-col md:flex-row items-center w-screen">
+            <div class="px-4 sm:px-6 lg:px-8 2xl:px-16 pt-10 sm:pt-12 lg:pt-20 xl:pt-28 pb-4 sm:text-center lg:text-left w-full md:w-1/2 h-1/2 md:h-full flex justify-center flex-col bg-hero-pattern">
+                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl 2xl:text-8xl">
+                    <span class="block">The shop for all</span>
+                    <span class="block text-indigo-600">
                     your buying needs
                     </span>
                 </h1>
@@ -75,7 +75,7 @@ const Home = () => {
 
             
                 <img
-                    className="w-full md:w-1/2 h-1/2 md:mt-0 md:h-93v object-cover"
+                    className="w-full md:w-1/2 h-1/2 md:mt-0 md:h-93v 3xl:h-95v  object-cover"
                     src={homeImage}
                     alt=""
                 />

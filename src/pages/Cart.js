@@ -53,7 +53,7 @@ const Cart = () => {
     }, [cart]);
 
     return (
-        <div className="font-roboto overflow-y-auto h-93v scrollbar-thin  scrollbar-thumb-rounded-md  scrollbar-thumb-gray-400  scrollbar-track-gray-200 bg-hero-pattern">
+        <div className="font-roboto overflow-y-auto h-93v 3xl:h-95v scrollbar-thin  scrollbar-thumb-rounded-md  scrollbar-thumb-gray-400  scrollbar-track-gray-200 bg-hero-pattern">
             <div className="flex items-center justify-between mx-4 md:mx-20 pt-3 my-2">
                 <h1 className="text-3xl  md:text-5xl font-semibold md:my-2 text-gray-700">
                     My Cart
