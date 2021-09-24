@@ -2,7 +2,7 @@ import React from "react";
 
 const ItemCard = ({ itemImg, itemTitle, itemPrice }) => {
     return (
-        <div className="w-36 h-72 md:w-80 md:h-96 m-4 flex flex-col rounded-sm pt-4 border border-opacity-50 cursor-pointer overflow-hidden shadow-md transform hover:scale-95 ease-in duration-150">
+        <div className="w-36 h-72 md:w-80 md:h-96 m-4 flex flex-col rounded-sm pt-4 border border-opacity-50 bg-white cursor-pointer overflow-hidden shadow-md transform hover:scale-95 ease-in duration-150">
             <img
                 src={itemImg}
                 alt=""

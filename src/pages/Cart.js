@@ -53,9 +53,9 @@ const Cart = () => {
     }, [cart]);
 
     return (
-        <div className="font-roboto ">
-            <div className="flex items-center justify-between mx-4 md:mx-20 pt-4 my-2">
-                <h1 className="text-3xl  md:text-5xl font-semibold md:my-8 text-gray-700">
+        <div className="font-roboto overflow-y-auto h-93v scrollbar-thin  scrollbar-thumb-rounded-md  scrollbar-thumb-gray-400  scrollbar-track-gray-200 bg-hero-pattern">
+            <div className="flex items-center justify-between mx-4 md:mx-20 pt-3 my-2">
+                <h1 className="text-3xl  md:text-5xl font-semibold md:my-2 text-gray-700">
                     My Cart
                 </h1>
                 <div className="bg-gray-900 flex text-gray-100 w-44 px-2 py-2 text-md divide-x-2 divide-opacity-30 divide-gray-200 rounded-sm">
@@ -66,20 +66,21 @@ const Cart = () => {
                 </div>
             </div>
             {cart.length === 0 ? (
-                <motion.div className="flex h-70v flex-col items-center justify-center"
+                <motion.div
+                    className="flex h-70v flex-col items-center justify-center"
                     variants={{
                         hidden: {
-                            y:-30,
-                            opacity:0,
+                            y: -30,
+                            opacity: 0,
                         },
                         visible: {
-                            y:0,
-                            opacity:1,
+                            y: 0,
+                            opacity: 1,
                             transition: {
                                 delay: "100ms",
-                                ease: "easeIn"
-                            }
-                        }
+                                ease: "easeIn",
+                            },
+                        },
                     }}
                     initial="hidden"
                     animate="visible"
@@ -92,76 +93,90 @@ const Cart = () => {
                     </span>
                 </motion.div>
             ) : (
-                cart.map((item, i) => (
-                    <AnimatePresence>
-                        <motion.div
-                            key={item.id}
-                            className="relative mx-4 my-6 md:mx-20 flex items-center border p-2 divide-x-2 divide-gray-300 divide-opacity-50 rounded-sm  hover:shadow-md border-opacity-50 transform duration-200 ease-in"
-    
-                            variants={{
-                                hiddenInit: i => ({
-                                    opacity:0,
-                                    y: -5 * i,
-                                }),
-                                hidden: {
-                                    opacity:1,
-                                },
-                                visibleInit: i => ({
-                                    opacity:1,
-                                    y: 0,
-                                    transition: {
-                                        delay: i * 0.05,
-                                        ease: "easeIn"
-                                    }
-                                }),
-                                visible: {
-                                    opacity:1,
-                                },
-                                exit: {
-                                    opacity:0, 
+                <div className="">
+                    {cart.map((item, i) => (
+                        <AnimatePresence>
+                            <motion.div
+                                key={item.id}
+                                className=" mx-4 my-6 md:mx-20 flex items-center border p-2 divide-x-2 divide-gray-300 divide-opacity-50 rounded-sm shadow-sm  hover:shadow-md bg-white border-opacity-50 transform duration-200 ease-in"
+                                variants={{
+                                    hiddenInit: (i) => ({
+                                        opacity: 0,
+                                        y: -5 * i,
+                                    }),
+                                    hidden: {
+                                        opacity: 1,
+                                    },
+                                    visibleInit: (i) => ({
+                                        opacity: 1,
+                                        y: 0,
+                                        transition: {
+                                            delay: i * 0.05,
+                                            ease: "easeIn",
+                                        },
+                                    }),
+                                    visible: {
+                                        opacity: 1,
+                                    },
+                                    exit: {
+                                        opacity: 0,
+                                    },
+                                }}
+                                initial={
+                                    initialAnimate ? "hiddenInit" : "hidden"
                                 }
-                            }}
-                            initial={initialAnimate ? "hiddenInit": "hidden"}
-                            // animate="visible"
-                            animate={initialAnimate ? "visibleInit": "visible"}
-                            // exit="exit"
-                            custom={i}
-                            
-                        >
-                            <Link
-                                className="mr-3 h-20 w-20 object-contain flex items-center justify-center"
-                                to={`/Shopping-cart/shop/${item.itemId}`}
+                                // animate="visible"
+                                animate={
+                                    initialAnimate ? "visibleInit" : "visible"
+                                }
+                                // exit="exit"
+                                custom={i}
                             >
-                                <img className="p-1 md:p-3" src={item.image} alt="" />
-                            </Link>
-                            <div className="pl-4 w-full overflow-hidden">
-                                <div className="flex justify-between items-center w-full">
-                                    <Link
-                                        className="truncate text-xl font-semibold w-5/6"
-                                        to={`/Shopping-cart/shop/${item.itemId}`}
-                                    >
-                                        <span>{item.title}</span>
-                                    </Link>
-                                    <span
-                                        className="text-4xl font-light transform -translate-y-2 rotate-45 cursor-pointer"
-                                        onClick={() => {
-                                            removeFromCart(item.id)
-                                            setInitialAnimate(false);
-                                        }}
-                                    >
-                                        +
-                                    </span>
+                                <Link
+                                    className="mr-3 h-20 w-20 object-contain flex items-center justify-center"
+                                    to={`/Shopping-cart/shop/${item.itemId}`}
+                                >
+                                    <img
+                                        className="p-1 md:p-3"
+                                        src={item.image}
+                                        alt=""
+                                    />
+                                </Link>
+                                <div className="pl-4 w-full overflow-hidden">
+                                    <div className="flex justify-between items-center w-full">
+                                        <Link
+                                            className="truncate text-xl font-semibold w-5/6"
+                                            to={`/Shopping-cart/shop/${item.itemId}`}
+                                        >
+                                            <span>{item.title}</span>
+                                        </Link>
+                                        <span
+                                            className="text-4xl font-light transform -translate-y-2 rotate-45 cursor-pointer"
+                                            onClick={() => {
+                                                removeFromCart(item.id);
+                                                setInitialAnimate(false);
+                                            }}
+                                        >
+                                            +
+                                        </span>
+                                    </div>
+                                    <h1>
+                                        {item.clothing
+                                            ? `Size: ${item.size}`
+                                            : ""}
+                                    </h1>
+                                    <h1>Quantity: {item.quantity}</h1>
+                                    <h1>
+                                        Total Price: $
+                                        {(item.quantity * item.price).toFixed(
+                                            2
+                                        )}
+                                    </h1>
                                 </div>
-                                <h1>{item.clothing ? `Size: ${item.size}`: ""}</h1>
-                                <h1>Quantity: {item.quantity}</h1>
-                                <h1>
-                                    Total Price: $
-                                    {(item.quantity * item.price).toFixed(2)}
-                                </h1>
-                            </div>
-                        </motion.div>
-                         </AnimatePresence>
-                    ))
+                            </motion.div>
+                        </AnimatePresence>
+                    ))}
+                </div>
             )}
 
             {cart.length > 0 ? (
@@ -169,10 +184,12 @@ const Cart = () => {
                     <motion.button
                         className="bg-green-600 w-36 h-11  flex items-center justify-center text-gray-100 text-lg divide-x-2 divide-green-200 divide-opacity-50 lowercase space-x-2 rounded-sm transform delay-100 ease-in hover:bg-green-500"
                         onClick={() => {
-                            toggleAnim()
+                            toggleAnim();
                             setTimeout(() => {
-                                window.location.replace('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-                            }, 1650)
+                                window.location.replace(
+                                    "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                                );
+                            }, 1650);
                         }}
                     >
                         <motion.svg

@@ -40,8 +40,8 @@ const Shop = () => {
     }, [activeTab]);
 
     return (
-        <div className="flex flex-col md:flex-row  h-93v 3xl:h-95v  relative">
-            <div className="flex items-center justify-center w-full md:w-24 md:h-full">
+        <div className="flex flex-col md:flex-row  h-93v 3xl:h-95v  relative bg-hero-pattern">
+            <div className="flex items-center justify-center w-full md:w-24 md:h-full bg-gray-100 shadow-md">
                 <ul className="flex justify-center md:h-full md:flex-col w-full pt-2 md:pt-0 font-roboto text-sm border-b md:border-b-0 md:border-r">
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 md:py-2 ${
@@ -129,11 +129,12 @@ const Shop = () => {
                     </svg>
                 </div>
             ) : (
-                <div className="overflow-y-auto flex flex-wrap w-full justify-center md:scrollbar-thin  md:scrollbar-thumb-rounded-md  md:scrollbar-thumb-gray-500  md:scrollbar-track-gray-400">
+                <div className="overflow-y-auto flex flex-wrap w-full justify-center scrollbar-thin  scrollbar-thumb-rounded-md  scrollbar-thumb-gray-400  scrollbar-track-gray-200">
                     {items.map((item) => (
                         <motion.div 
                             initial={{opacity:0, translateY: "-20px"}}
                             animate={{opacity:1, translateY: "0px"}}
+                            className=""
                         >
                             <Link to={`/Shopping-cart/shop/${item.id}`}>
                                 <ItemCard
