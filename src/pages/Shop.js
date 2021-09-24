@@ -129,7 +129,7 @@ const Shop = () => {
                     </svg>
                 </div>
             ) : (
-                <div className="overflow-y-auto flex flex-wrap w-full justify-center">
+                <div className="overflow-y-auto flex flex-wrap w-full justify-center md:scrollbar-thin  md:scrollbar-thumb-rounded-md  md:scrollbar-thumb-gray-500  md:scrollbar-track-gray-400">
                     {items.map((item) => (
                         <motion.div 
                             initial={{opacity:0, translateY: "-20px"}}

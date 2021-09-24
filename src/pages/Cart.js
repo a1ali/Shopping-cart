@@ -53,7 +53,7 @@ const Cart = () => {
     }, [cart]);
 
     return (
-        <div className="font-roboto">
+        <div className="font-roboto ">
             <div className="flex items-center justify-between mx-4 md:mx-20 pt-4 my-2">
                 <h1 className="text-3xl  md:text-5xl font-semibold md:my-8 text-gray-700">
                     My Cart

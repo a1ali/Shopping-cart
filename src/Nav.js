@@ -17,7 +17,7 @@ const Nav = () => {
 
     return (
         <div className="relative">
-            <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-100 md:rounded-b-lg font-roboto ">
+            <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-50 shadow-md font-roboto ">
                 <Link to="/Shopping-cart" onClick={() => setActiveTab("home")}>
                     <h3 className="text-xl font-bold">ALLMART</h3>
                 </Link>
@@ -25,7 +25,7 @@ const Nav = () => {
                     <Link
                         to="/Shopping-cart"
                         className={`${
-                            activeTab === "home" ? "bg-secondary" : "bg-primary"
+                            activeTab === "home" ? "bg-purple-500" : "bg-primary"
                         } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("home")}
                     >
@@ -34,7 +34,7 @@ const Nav = () => {
                     <Link
                         to="/Shopping-cart/shop"
                         className={`${
-                            activeTab === "shop" ? "bg-secondary" : "bg-primary"
+                            activeTab === "shop" ? "bg-purple-500" : "bg-primary"
                         } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("shop")}
                     >
@@ -44,7 +44,7 @@ const Nav = () => {
                         to="/Shopping-cart/contact"
                         className={`${
                             activeTab === "contact"
-                                ? "bg-secondary"
+                                ? "bg-purple-500"
                                 : "bg-primary"
                         } px-3 rounded-md py-2`}
                         onClick={() => setActiveTab("contact")}

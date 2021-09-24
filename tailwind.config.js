@@ -42,7 +42,7 @@ module.exports = {
         },
         backgroundColor: (theme) => ({
             ...theme("colors"),
-            primary: "#6C63FF",
+            primary: "#4F46E5",
             secondary: "#514BC0",
             coat: "#FF6484",
         }),
@@ -56,11 +56,19 @@ module.exports = {
             primary: "#6C63FF",
             secondary: "#514BC0",
             coat: "#FF6484",
-        })
+        }),
+        backgroundImage: {
+            'hero-pattern': "url('/src/assets/pattern-randomized.svg')",
+            
+           }
   
     },
     variants: {
-        extend: {},
+        extend: {
+            scrollbar: ["dark", "rounded"],
+        },
     },
-    plugins: [],
+    plugins: [
+        require('tailwind-scrollbar'),
+    ],
 };
