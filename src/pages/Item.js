@@ -3,7 +3,8 @@ import CartCircle from "../components/CartCircle";
 import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../state/allActions";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import Error from "../components/Error";
 
 const Item = ({ match }) => {
     let [item, setItem] = useState({});
@@ -11,6 +12,7 @@ const Item = ({ match }) => {
     let [quantity, setQuantity] = useState(1);
     let [size, setSize] = useState("S");
     let [clothing, setClothing] = useState(false);
+    let [error, setError] = useState(false);
 
     const cart = useSelector((state) => state.cartReducer);
     const dispatch = useDispatch();
@@ -18,16 +20,27 @@ const Item = ({ match }) => {
 
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${match.params.id}`)
-            .then((res) => res.json())
+            .then((res) => {
+                if (!res.ok) {
+                    throw Error("Could not fetch data from Fakestore API");
+                }
+                return res.json();
+            })
             .then((res) => {
                 setItem(res);
                 setLoading(false);
+                setError(false);
                 if (
                     res.category === "men's clothing" ||
                     res.category === "women's clothing"
                 ) {
                     setClothing(true);
                 }
+            })
+            .catch((error) => {
+                setError(true);
+                setLoading(false);
+                console.log(error.message);
             });
     }, []);
 
@@ -66,6 +79,8 @@ const Item = ({ match }) => {
                         ></path>
                     </svg>
                 </div>
+            ) : error ? (
+                <Error></Error>
             ) : (
                 <div className="md:h-93v w-full flex items-center justify-center font-roboto">
                     <div className="flex flex-col md:flex-row items-center justify-center">
@@ -90,31 +105,51 @@ const Item = ({ match }) => {
                             {clothing ? (
                                 <div className="flex mt-3 text-gray-900">
                                     <button
-                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'S') ? 'bg-primary text-gray-50': ''}`}
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${
+                                            size === "S"
+                                                ? "bg-primary text-gray-50"
+                                                : ""
+                                        }`}
                                         onClick={() => setSize("S")}
                                     >
                                         S
                                     </button>
                                     <button
-                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'M') ? 'bg-primary text-gray-50': ''}`}
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${
+                                            size === "M"
+                                                ? "bg-primary text-gray-50"
+                                                : ""
+                                        }`}
                                         onClick={() => setSize("M")}
                                     >
                                         M
                                     </button>
                                     <button
-                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'L') ? 'bg-primary text-gray-50': ''}`}
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${
+                                            size === "L"
+                                                ? "bg-primary text-gray-50"
+                                                : ""
+                                        }`}
                                         onClick={() => setSize("L")}
                                     >
                                         L
                                     </button>
                                     <button
-                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'XL') ? 'bg-primary text-gray-50': ''}`}
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${
+                                            size === "XL"
+                                                ? "bg-primary text-gray-50"
+                                                : ""
+                                        }`}
                                         onClick={() => setSize("XL")}
                                     >
                                         XL
                                     </button>
                                     <button
-                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${(size === 'XXL') ? 'bg-primary text-gray-50': ''}`}
+                                        className={` bg-gray-200 text-md mr-3 font-semibold md:hover:bg-gray-800 md:hover:text-gray-50 transform transition-all duration-200 ease-in px-2 w-11 h-11 ${
+                                            size === "XXL"
+                                                ? "bg-primary text-gray-50"
+                                                : ""
+                                        }`}
                                         onClick={() => setSize("XXL")}
                                     >
                                         XXL
@@ -141,7 +176,8 @@ const Item = ({ match }) => {
                                 </button>
                             </div>
                             <div>
-                                <button className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in"
+                                <button
+                                    className="border-2 mb-3 md:mb-0 py-2 px-3 border-coat text-coat hover:bg-coat hover:text-gray-50 rounded-sm transform transition-all duration-200 ease-in"
                                     onClick={() => {
                                         addToCart({
                                             id: uuidv4(),
@@ -152,7 +188,7 @@ const Item = ({ match }) => {
                                             price: item.price,
                                             image: item.image,
                                             itemId: item.id,
-                                        })
+                                        });
                                     }}
                                 >
                                     Add to Cart

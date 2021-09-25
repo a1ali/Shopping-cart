@@ -7,34 +7,52 @@ import all from "./../assets/all.svg";
 import { Link } from "react-router-dom";
 import ItemCard from "./../components/ItemCard";
 import CartCircle from "../components/CartCircle";
-import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Error from "../components/Error";
+
 const Shop = () => {
     let [items, setItems] = useState([]);
     let [activeTab, setActiveTab] = useState("all");
     let [loading, setLoading] = useState(true);
-
-    let cart = useSelector((state) => state.cartReducer);
-
-    // useEffect(() => {
-    //     console.log(cart)
-    // }, [cart])
+    let [error, setError] = useState(false);
 
     useEffect(() => {
         setLoading(true);
         if (activeTab === "all") {
-            fetch("https://fakestoreapi.com/products")
-                .then((res) => res.json())
+            fetch("https://fakestoreapi.com/products/")
+                .then((res) => {
+                    if (!res.ok) {
+                        throw Error("Could not fetch data from Fakestore API");
+                    }
+                    return res.json();
+                })
                 .then((json) => {
                     setItems(json);
+                    setError(false);
                     setLoading(false);
+                })
+                .catch((error) => {
+                    setError(true);
+                    setLoading(false);
+                    console.log(error.message);
                 });
         } else {
             fetch(`https://fakestoreapi.com/products/category/${activeTab}`)
-                .then((res) => res.json())
+                .then((res) => {
+                    if (!res.ok) {
+                        throw Error("Could not fetch data from Fakestore API");
+                    }
+                    return res.json();
+                })
                 .then((json) => {
                     setItems(json);
+                    setError(false);
                     setLoading(false);
+                })
+                .catch((error) => {
+                    setError(true);
+                    setLoading(false);
+                    console.log(error.message);
                 });
         }
     }, [activeTab]);
@@ -128,12 +146,14 @@ const Shop = () => {
                         ></path>
                     </svg>
                 </div>
+            ) : error ? (
+                <Error></Error>
             ) : (
                 <div className="overflow-y-auto flex flex-wrap w-full justify-center scrollbar-thin  scrollbar-thumb-rounded-md  scrollbar-thumb-gray-400  scrollbar-track-gray-200">
                     {items.map((item) => (
-                        <motion.div 
-                            initial={{opacity:0, translateY: "-20px"}}
-                            animate={{opacity:1, translateY: "0px"}}
+                        <motion.div
+                            initial={{ opacity: 0, translateY: "-20px" }}
+                            animate={{ opacity: 1, translateY: "0px" }}
                             className=""
                         >
                             <Link to={`/Shopping-cart/shop/${item.id}`}>

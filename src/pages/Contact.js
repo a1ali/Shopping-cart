@@ -16,8 +16,8 @@ const Contact = () => {
                         scale: 1,
                         transition: {
                             duration: 0.25,
-                            ease:"easeIn"
-                        }
+                            ease: "easeIn",
+                        },
                     },
                 }}
                 initial="hidden"

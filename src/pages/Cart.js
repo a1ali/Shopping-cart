@@ -125,11 +125,9 @@ const Cart = () => {
                                 initial={
                                     initialAnimate ? "hiddenInit" : "hidden"
                                 }
-                                // animate="visible"
                                 animate={
                                     initialAnimate ? "visibleInit" : "visible"
                                 }
-                                // exit="exit"
                                 custom={i}
                             >
                                 <Link
