@@ -5,7 +5,7 @@ const Contact = () => {
     return (
         <div className="bg-hero-pattern h-93v 2xl:h-95v flex items-center justify-center font-roboto">
             <motion.div
-                className="w-2/3 h-1/3 bg-gray-100 shadow-md rounded-sm flex flex-col items-center py-8 px-4"
+                className="w-2/3 h-1/3 md:h-2/5 bg-gray-100 shadow-md rounded-sm flex flex-col items-center py-8 px-4"
                 variants={{
                     hidden: {
                         opacity: 0,

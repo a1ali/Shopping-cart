@@ -14,7 +14,7 @@ const Home = () => {
         <main className="h-93v 3xl:h-95v flex flex-col md:flex-row items-center w-screen">
             <motion.div className="px-4 sm:px-6 lg:px-8 2xl:px-16 pt-10 sm:pt-12 lg:pt-20 xl:pt-28 pb-4 sm:text-center lg:text-left w-full md:w-1/2 h-1/2 md:h-full flex justify-center flex-col bg-hero-pattern">
                 <motion.h1
-                    className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl 2xl:text-8xl"
+                    className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl 3xl:text-8xl"
                     variants={{
                         hidden: {
                             opacity: 0,
