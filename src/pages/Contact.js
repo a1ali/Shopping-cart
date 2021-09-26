@@ -27,7 +27,7 @@ const Contact = () => {
                     ALLMART Contact Info
                 </span>
 
-                <div className="flex flex-col items-center justify-center text-md sm:text-lg md:text-xl md:mt-2 2xl:pt-16">
+                <div className="flex flex-col items-center justify-center text-md sm:text-lg md:text-xl md:mt-2 lg:pt-8">
                     <span>Customer Service Hours:</span>
                     <span>Monday-Friday</span>
                     <span>9AM - 6PM EST</span>
