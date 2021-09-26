@@ -13,7 +13,7 @@ function App() {
             <Router>
                 <Nav></Nav>
                 <Switch>
-                    <Route path="" exact component={Home}></Route>
+                    <Route path="/" exact component={Home}></Route>
                     <Route path="/shop" exact component={Shop}></Route>
                     <Route path="/contact" exact component={Contact}></Route>
                     <Route path="/shop/:id" component={Item}></Route>
