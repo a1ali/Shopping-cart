@@ -1,6 +1,6 @@
 {
   "name": "shopping-cart",
-  "homepage": "https://a1ali.github.io/Shopping-cart/",
+  "homepage": "https://a1ali-shopping-cart.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
