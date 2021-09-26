@@ -156,7 +156,7 @@ const Shop = () => {
                             animate={{ opacity: 1, translateY: "0px" }}
                             className=""
                         >
-                            <Link to={`/Shopping-cart/shop/${item.id}`}>
+                            <Link to={`/shop/${item.id}`}>
                                 <ItemCard
                                     itemImg={item.image}
                                     itemTitle={item.title}

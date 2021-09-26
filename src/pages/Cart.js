@@ -132,7 +132,7 @@ const Cart = () => {
                             >
                                 <Link
                                     className="mr-3 h-20 w-20 object-contain flex items-center justify-center"
-                                    to={`/Shopping-cart/shop/${item.itemId}`}
+                                    to={`/shop/${item.itemId}`}
                                 >
                                     <img
                                         className="p-1 md:p-3"
@@ -144,7 +144,7 @@ const Cart = () => {
                                     <div className="flex justify-between items-center w-full">
                                         <Link
                                             className="truncate text-xl font-semibold w-5/6"
-                                            to={`/Shopping-cart/shop/${item.itemId}`}
+                                            to={`/shop/${item.itemId}`}
                                         >
                                             <span>{item.title}</span>
                                         </Link>

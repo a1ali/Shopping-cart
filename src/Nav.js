@@ -18,12 +18,12 @@ const Nav = () => {
     return (
         <div className="relative">
             <div className="flex justify-between items-center px-8 py-2 h-7v 3xl:h-5v bg-primary text-gray-50 shadow-md font-roboto ">
-                <Link to="/Shopping-cart" onClick={() => setActiveTab("home")}>
+                <Link to="/" onClick={() => setActiveTab("home")}>
                     <h3 className="text-xl font-bold">ALLMART</h3>
                 </Link>
                 <ul className="hidden md:flex items-center">
                     <Link
-                        to="/Shopping-cart"
+                        to="/"
                         className={`${
                             activeTab === "home" ? "bg-purple-500" : "bg-primary"
                         } px-3 rounded-md py-2`}
@@ -32,7 +32,7 @@ const Nav = () => {
                         <li>Home</li>
                     </Link>
                     <Link
-                        to="/Shopping-cart/shop"
+                        to="/shop"
                         className={`${
                             activeTab === "shop" ? "bg-purple-500" : "bg-primary"
                         } px-3 rounded-md py-2`}
@@ -41,7 +41,7 @@ const Nav = () => {
                         <li>Shop</li>
                     </Link>
                     <Link
-                        to="/Shopping-cart/contact"
+                        to="/contact"
                         className={`${
                             activeTab === "contact"
                                 ? "bg-purple-500"
@@ -52,7 +52,7 @@ const Nav = () => {
                         <li>Contact</li>
                     </Link>
                     <Link
-                        to="/Shopping-cart/cart"
+                        to="/cart"
                         className="px-3"
                         onClick={() => setActiveTab("")}
                     >
@@ -127,28 +127,28 @@ const Nav = () => {
                             transition={{ duration: 0.15 }}
                         >
                             <Link
-                                to="/Shopping-cart"
+                                to="/"
                                 className="px-3 py-1 w-full border-b text-center border-t border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none">Home</li>
                             </Link>
                             <Link
-                                to="/Shopping-cart/shop"
+                                to="/shop"
                                 className="px-3 py-1 w-full border-b text-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none">Shop</li>
                             </Link>
                             <Link
-                                to="/Shopping-cart/cart"
+                                to="/cart"
                                 className="px-3 py-1 w-full border-b flex justify-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
                                 <li className="list-none flex">Cart</li>
                             </Link>
                             <Link
-                                to="/Shopping-cart/contact"
+                                to="/contact"
                                 className="px-3 py-1 w-full border-b text-center border-gray-200 border-opacity-30"
                                 onClick={() => setMenu(false)}
                             >
