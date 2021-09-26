@@ -107,7 +107,7 @@ const Shop = () => {
                         }}
                     >
                         <img className="h-10" src={necklace} alt="" />
-                        <span className="pb-2 md:pb-0">Jewelery</span>
+                        <span className="pb-2 md:pb-0">Jewelry</span>
                     </li>
                     <li
                         className={`flex flex-col items-center justify-center px-3 cursor-pointer border-b-2 md:border-r-2  md:border-b-0 border-transparent md:py-2 ${
